@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+   		<bean id="dao" class="com.qfedu.autowire.UserDao"></bean>
+   		<bean id="dao2" class="com.qfedu.autowire.UserDao"></bean>
+   		<!-- autowire 自动注入
+   			byName 根据名称注入
+   				UserService类里，依赖名称是userDao的数据访问层对象，
+   				从spring容器中，找id值是userDao的对象
+   			byType 根据类型进行注入
+   				UserService类里，依赖类型是UserDao的数据访问层，
+   				从spring容器中找是否有哪个对象 的类型userDao
+   				如果有多个相同 的类型对象，注入失败
+   		 -->
+   		
+   		
+   		<bean id="userService" class="com.qfedu.autowire.UserService" autowire="byType"></bean>
+		<bean id="userController" class="com.qfedu.autowire.UserController" autowire="byName"></bean>
+		
+		
+		
+		
+		
+</beans>

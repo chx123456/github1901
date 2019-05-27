@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+   		<!-- 调用无参的构造方法 -->
+		<bean name="user" class="com.qfedu.ioc.User"></bean>
+		
+		
+		<bean id="user2" class="com.qfedu.ioc.User">
+			<constructor-arg name="name" value="zhangsan"></constructor-arg>
+			<constructor-arg name="age" value="20"></constructor-arg>
+		</bean>
+
+
+		<bean id="user3" class="com.qfedu.ioc.User">
+			<constructor-arg index="0" value="zhangsan"></constructor-arg>
+			<constructor-arg index="1" value="20"></constructor-arg>
+		</bean>
+		 
+		<!-- <bean id="user4" class="com.qfedu.ioc.User">
+			<constructor-arg value="wangwu"></constructor-arg>
+			<constructor-arg value="Tom"></constructor-arg>
+		</bean>   -->
+		<!--  <bean id="user" class="com.qfedu.ioc.User">
+			<constructor-arg value="wangwu"></constructor-arg>
+			<constructor-arg value="Tom"></constructor-arg>
+		</bean>  -->
+		
+		<bean id="nameStr" class="java.lang.String">
+			<constructor-arg value="Tom"></constructor-arg>
+		</bean>
+		<bean id="nameStr2" class="java.lang.Integer">
+			<constructor-arg value="20"></constructor-arg>
+		</bean>
+		
+		<bean id="user5" class="com.qfedu.ioc.User">
+			<constructor-arg name="name" ref="nameStr"></constructor-arg>
+			<constructor-arg name="age" ref="nameStr2"></constructor-arg>
+		</bean>
+		
+		
+		<bean id="user6" class="com.qfedu.ioc.UserFactory" factory-method="createUser">
+			
+		</bean>
+		
+		
+		
+</beans>
